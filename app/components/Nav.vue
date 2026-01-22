@@ -85,6 +85,9 @@
                     href="/#contact">
                     Contact
                 </a>
+                <a class="bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded-sm text-sm font-bold uppercase tracking-widest transition-all flex items-center justify-center border border-red-700 hover:border-red-500" href="/login">
+                    Login
+                </a>
             </div>
         </div>
     </nav>
