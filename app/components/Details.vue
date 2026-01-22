@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-zinc-950">
+    <section id="details" class="bg-zinc-950">
         <div class="grid grid-cols-1 lg:grid-cols-2">
             <div class="p-12 md:p-24 border-b lg:border-b-0 lg:border-r border-zinc-900 flex flex-col justify-center">
                 <UIcon name="i-lucide-scroll-text" class="w-12 h-12 text-red-700 mb-8" />

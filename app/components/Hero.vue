@@ -13,7 +13,7 @@
                     Budokan Philippines is a specialist martial arts dojo dedicated to authentic combat systems that have largely disappeared from mainstream training.
                 </p>
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-                    <a class="bg-red-700 hover:bg-red-800 text-white px-10 py-5 rounded-sm text-lg font-bold uppercase tracking-widest transition-all flex items-center justify-center border border-red-700 hover:border-red-500" href="/join">
+                    <a class="bg-red-700 hover:bg-red-800 text-white px-10 py-5 rounded-sm text-lg font-bold uppercase tracking-widest transition-all flex items-center justify-center border border-red-700 hover:border-red-500" href="/login">
                         Inquire for Trial
                     </a>
                     <a href="#about" class="text-zinc-300 hover:text-white px-10 py-5 rounded-sm text-lg font-bold uppercase tracking-widest transition-colors flex items-center justify-center border border-zinc-700 hover:border-zinc-500">

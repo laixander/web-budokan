@@ -1,5 +1,5 @@
 <template>
-    <section class="py-24 bg-zinc-900 border-y border-zinc-800">
+    <section id="training" class="py-24 bg-zinc-900 border-y border-zinc-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-20">
                 <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tight mb-4 text-white">
@@ -17,7 +17,7 @@
                         <img :src="system.image" :alt="system.title"
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100" />
                         <div class="absolute bottom-4 right-4 p-3 bg-red-700 text-white rounded-sm">
-                            <UIcon :name="system.icon" class="w-6 h-6" />
+                            <UIcon :name="system.icon" class="flex w-6 h-6" />
                         </div>
                     </div>
 
@@ -47,8 +47,8 @@ const systems = [
     {
         title: 'Iwama-Style Aikido',
         image:
-            'https://images.unsplash.com/photo-1746960836110-18b23375651c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080',
-        icon: 'i-lucide-scale',
+            'https://images.unsplash.com/photo-1731530283978-337f43a44ea6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080',
+        icon: 'i-lucide-swords',
         description:
             'This is not soft or compliant Aikido. Training emphasizes solid structure, posture, joint control, and direct integration of weapons. Empty-hand techniques are inseparable from bokken and jo principles.',
     },
@@ -64,7 +64,7 @@ const systems = [
     {
         title: 'Dekiti Tirsi Siradas Arnis',
         image:
-            'https://images.unsplash.com/photo-1564452879279-03d854bd2401?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080',
+            'https://images.unsplash.com/photo-1667414083060-75a8614b1dc6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080',
         icon: 'i-lucide-sword',
         description:
             'This is not modern or sport Arnis. Dekiti Tirsi Siradas is a blade-first Filipino martial art preserving continuous offense, close-quarter combat, and classical weapon logic.',

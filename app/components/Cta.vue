@@ -1,5 +1,5 @@
 <template>
-    <section class="py-32 bg-zinc-900 text-white text-center relative overflow-hidden border-t border-zinc-800">
+    <section id="contact" class="py-32 bg-zinc-900 text-white text-center relative overflow-hidden border-t border-zinc-800">
         <div class="absolute inset-0 bg-black/50 pattern-grid-lg opacity-20"></div>
         <div class="relative z-10 max-w-4xl mx-auto px-4">
             <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-8">

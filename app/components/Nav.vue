@@ -12,18 +12,34 @@
 
                 <!-- Desktop menu -->
                 <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-6">
+                    <div class="ml-10 flex items-baseline space-x-4">
                         <a class="text-zinc-400 hover:text-white px-3 py-2 text-sm font-bold uppercase tracking-widest transition-colors"
                             href="/">
                             Home
                         </a>
                         <a class="text-zinc-400 hover:text-white px-3 py-2 text-sm font-bold uppercase tracking-widest transition-colors"
-                            href="/dashboard">
-                            Student Portal
+                            href="/#about">
+                            About the Dojo
                         </a>
                         <a class="text-zinc-400 hover:text-white px-3 py-2 text-sm font-bold uppercase tracking-widest transition-colors"
-                            href="/admin">
-                            Admin Portal
+                            href="/#training">
+                            Training Systems
+                        </a>
+                        <a class="text-zinc-400 hover:text-white px-3 py-2 text-sm font-bold uppercase tracking-widest transition-colors"
+                            href="/#details">
+                            Other Details
+                        </a>
+                        <a class="text-zinc-400 hover:text-white px-3 py-2 text-sm font-bold uppercase tracking-widest transition-colors"
+                            href="/#faq">
+                            FAQ
+                        </a>
+                        <a class="text-zinc-400 hover:text-white px-3 py-2 text-sm font-bold uppercase tracking-widest transition-colors"
+                            href="/#contact">
+                            Contact
+                        </a>
+
+                        <a class="bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded-sm text-sm font-bold uppercase tracking-widest transition-all flex items-center justify-center border border-red-700 hover:border-red-500" href="/login">
+                            Login
                         </a>
                     </div>
                 </div>
@@ -44,20 +60,30 @@
         <!-- Mobile menu -->
         <div v-show="isOpen" class="md:hidden bg-zinc-950 border-b border-zinc-900">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a @click="close"
-                    class="text-gray-300 hover:text-white block px-3 py-2 text-base font-bold uppercase tracking-widest"
+
+                <a @click="close" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-bold uppercase tracking-widest"
                     href="/">
                     Home
                 </a>
-                <a @click="close"
-                    class="text-gray-300 hover:text-white block px-3 py-2 text-base font-bold uppercase tracking-widest"
-                    href="/dashboard">
-                    Student Portal
+                <a @click="close" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-bold uppercase tracking-widest"
+                    href="/#about">
+                    About the Dojo
                 </a>
-                <a @click="close"
-                    class="text-gray-300 hover:text-white block px-3 py-2 text-base font-bold uppercase tracking-widest"
-                    href="/admin">
-                    Admin Portal
+                <a @click="close" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-bold uppercase tracking-widest"
+                    href="/#training">
+                    Training Systems
+                </a>
+                <a @click="close" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-bold uppercase tracking-widest"
+                    href="/#details">
+                    Other Details
+                </a>
+                <a @click="close" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-bold uppercase tracking-widest"
+                    href="/#faq">
+                    FAQ
+                </a>
+                <a @click="close" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-bold uppercase tracking-widest"
+                    href="/#contact">
+                    Contact
                 </a>
             </div>
         </div>

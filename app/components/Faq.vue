@@ -1,5 +1,5 @@
 <template>
-    <section class="py-24 bg-zinc-950">
+    <section id="faq" class="py-24 bg-zinc-950">
         <div class="max-w-3xl mx-auto px-4">
             <div class="text-center mb-16">
                 <UIcon name="i-lucide-circle-help" class="w-12 h-12 text-zinc-700 mx-auto mb-6" />
