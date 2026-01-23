@@ -14,7 +14,7 @@
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
                         <a class="text-zinc-400 hover:text-white px-3 py-2 text-sm font-bold uppercase tracking-widest transition-colors"
-                            href="/">
+                            href="/#top">
                             Home
                         </a>
                         <a class="text-zinc-400 hover:text-white px-3 py-2 text-sm font-bold uppercase tracking-widest transition-colors"
