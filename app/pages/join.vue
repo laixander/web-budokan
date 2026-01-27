@@ -5,8 +5,8 @@
             <div class="absolute bottom-1/4 left-1/4 w-96 h-96 bg-zinc-800/20 rounded-full blur-3xl"></div>
         </div>
         <div class="relative z-10 w-full max-w-lg my-10">
-            <a class="inline-flex items-center text-zinc-500 hover:text-white mb-8 transition-colors" href="/login" data-discover="true">
-                <UIcon name="i-lucide-arrow-left" class="w-4 h-4 mr-2" /> Back to Login
+            <a class="inline-flex items-center text-zinc-500 hover:text-white mb-8 transition-colors" href="/" data-discover="true">
+                <UIcon name="i-lucide-arrow-left" class="w-4 h-4 mr-2" /> Back to Homepage
             </a>
             <div class="text-center mb-8">
                 <h1 class="text-4xl font-black uppercase italic text-white mb-2">Join Budokan</h1>

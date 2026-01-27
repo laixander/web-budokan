@@ -46,7 +46,7 @@
                 <!-- Student -->
                 <div class="p-8" v-show="activeTab === 'student'">
                     <h2 class="text-2xl font-bold text-white mb-6 text-center">Student Portal</h2>
-                    <form class="space-y-4">
+                    <form class="space-y-4" @submit.prevent="handleLogin('student')">
                         <div class="relative">
                             <UIcon name="i-lucide-mail" class="absolute left-3 top-3.5 w-5 h-5 text-zinc-500" />
                             <input type="email" placeholder="Email Address"
@@ -60,9 +60,23 @@
                                 value="">
                         </div>
                         
-                        <button type="submit"
-                            class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-lg transition-colors uppercase italic flex items-center justify-center shadow-lg hover:shadow-red-900/20">
-                            Sign In <UIcon name="i-lucide-arrow-right" class="lucide-arrow-right" />
+                        <button
+                            type="submit"
+                            :disabled="authState.student.loading"
+                            class="w-full bg-red-600 hover:bg-red-700 disabled:bg-red-900/50 disabled:cursor-not-allowed text-white font-bold py-3 rounded-lg transition-colors uppercase italic flex items-center justify-center shadow-lg hover:shadow-red-900/20 gap-2"
+                        >
+                            <template v-if="authState.student.loading">
+                                <UIcon name="i-lucide-loader-circle" class="w-5 h-5 animate-spin" />
+                                Signing In…
+                            </template>
+                            <template v-else-if="authState.student.success">
+                                <UIcon name="i-lucide-check" class="w-5 h-5" />
+                                Welcome!
+                            </template>
+                            <template v-else>
+                                Sign In
+                                <UIcon name="i-lucide-arrow-right" class="w-4 h-4" />
+                            </template>
                         </button>
                     </form>
                     <div class="mt-6 flex flex-col gap-3">
@@ -77,7 +91,7 @@
                 <!-- Admin -->
                 <div class="p-8" v-show="activeTab === 'admin'">
                     <h2 class="text-2xl font-bold text-white mb-6 text-center">Admin Portal</h2>
-                    <form class="space-y-4">
+                    <form class="space-y-4" @submit.prevent="handleLogin('admin')">
                         <div class="relative">
                             <UIcon name="i-lucide-mail" class="absolute left-3 top-3.5 w-5 h-5 text-zinc-500" />
                             <input type="email" placeholder="Email Address" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg pl-10 pr-4 py-3 text-white focus:border-red-600 outline-none transition-colors" value="">
@@ -86,8 +100,23 @@
                             <UIcon name="i-lucide-lock" class="absolute left-3 top-3.5 w-5 h-5 text-zinc-500" />
                             <input type="password" placeholder="Password" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg pl-10 pr-4 py-3 text-white focus:border-red-600 outline-none transition-colors" value="">
                         </div>
-                        <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-lg transition-colors uppercase italic flex items-center justify-center shadow-lg hover:shadow-red-900/20">
-                            Sign In <UIcon name="i-lucide-arrow-right" class="lucide-arrow-right" />
+                        <button
+                            type="submit"
+                            :disabled="authState.admin.loading"
+                            class="w-full bg-red-600 hover:bg-red-700 disabled:bg-red-900/50 disabled:cursor-not-allowed text-white font-bold py-3 rounded-lg transition-colors uppercase italic flex items-center justify-center shadow-lg hover:shadow-red-900/20 gap-2"
+                        >
+                            <template v-if="authState.admin.loading">
+                                <UIcon name="i-lucide-loader-circle" class="w-5 h-5 animate-spin" />
+                                Signing In…
+                            </template>
+                            <template v-else-if="authState.admin.success">
+                                <UIcon name="i-lucide-check" class="w-5 h-5" />
+                                Welcome!
+                            </template>
+                            <template v-else>
+                                Sign In
+                                <UIcon name="i-lucide-arrow-right" class="w-4 h-4" />
+                            </template>
                         </button>
                     </form>
                 </div>
@@ -97,7 +126,32 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 
 const activeTab = ref<'student' | 'admin'>('student')
+
+type Role = 'student' | 'admin'
+
+const authState = reactive({
+    student: { loading: false, success: false },
+    admin: { loading: false, success: false }
+})
+
+const handleLogin = async (role: Role) => {
+    const state = authState[role]
+    if (state.loading) return
+
+    state.loading = true
+    state.success = false
+
+    // Simulated happy path (replace with real auth)
+    await new Promise(resolve => setTimeout(resolve, 1200))
+
+    state.loading = false
+    state.success = true
+
+    setTimeout(() => {
+        navigateTo(role === 'student' ? '/student' : '/admin')
+    }, 800)
+}
 </script>
