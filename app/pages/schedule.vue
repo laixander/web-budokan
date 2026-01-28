@@ -1,12 +1,8 @@
 <template>
     <div class="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col font-sans">
         <NavbarGuest />
-        <main id="top" class="flex-grow pt-16">
-            <Hero />
-            <About />
-            <Training />
-            <Faq />
-            <Cta />
+        <main class="flex-grow pt-16">
+            <ClassSchedule />
         </main>
         <Footer />
     </div>

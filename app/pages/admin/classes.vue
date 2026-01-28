@@ -1,6 +1,6 @@
 <template>
     <div class="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col font-sans">
-        <Nav />
+        <NavbarAdmin />
         <main class="flex-grow pt-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
                 <Header title="Class Management" subtitle="Create, edit, and generate QR codes for classes">

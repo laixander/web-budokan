@@ -11,7 +11,7 @@
 
                 <!-- Desktop menu -->
                 <div class="hidden md:flex ml-10 items-baseline space-x-4">
-                    <NuxtLink v-for="item in navItems" :key="item.hash" :to="item.to" :class="linkClass(item.hash)">
+                    <NuxtLink v-for="item in navItems" :key="item.hash" :to="item.to" :class="linkClass(item.hash)" @click="isAutoScrolling = true">
                         {{ item.label }}
                     </NuxtLink>
 
@@ -48,33 +48,84 @@
 </template>
 
 <script setup lang="ts">
-import { watch, ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 import { useHead, useRoute } from '#imports'
 
-// Active State
 type NavItem = {
-    label: string
-    hash: string
-    to: string
+  label: string
+  hash: string
+  to: string
 }
 
 const route = useRoute()
 const isOpen = ref(false)
+const close = () => (isOpen.value = false)
 
-const close = (): void => {
-    isOpen.value = false
-}
+// 🔴 THIS is now the source of truth
+const activeHash = ref('#top')
 
 const navItems: NavItem[] = [
-    { label: 'Home', hash: '#top', to: '/#top' },
-    { label: 'About the Dojo', hash: '#about', to: '/#about' },
-    { label: 'Training Systems', hash: '#training', to: '/#training' },
-    { label: 'Other Details', hash: '#details', to: '/#details' },
-    { label: 'FAQ', hash: '#faq', to: '/#faq' },
-    { label: 'Contact', hash: '#contact', to: '/#contact' }
+  { label: 'Home', hash: '#top', to: '/#top' },
+  { label: 'About the Dojo', hash: '#about', to: '/#about' },
+  { label: 'Training Systems', hash: '#training', to: '/#training' },
+  { label: 'FAQ', hash: '#faq', to: '/#faq' },
+  { label: 'Contact', hash: '#contact', to: '/#contact' }
 ]
 
-const isActiveHash = (hash: string): boolean => route.hash === hash
+let observer: IntersectionObserver | null = null
+
+const onScroll = () => {
+  if (window.scrollY < 40) {
+    activeHash.value = '#top'
+  }
+}
+
+const isAutoScrolling = ref(false)
+
+onMounted(() => {
+  const sections = document.querySelectorAll<HTMLElement>('section[id]')
+  if (!sections.length) return
+
+  observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(entry => {
+        // if (entry.isIntersecting) {
+        //     const newHash = `#${entry.target.id}`
+
+        //     if (activeHash.value !== newHash) {
+        //     activeHash.value = newHash
+        //     history.replaceState(null, '', newHash)
+        //     }
+        // }
+            if (entry.isIntersecting) {
+                const newHash = `#${entry.target.id}`
+                activeHash.value = newHash
+
+                if (isAutoScrolling.value) {
+                    setTimeout(() => (isAutoScrolling.value = false), 300)
+                } else {
+                    history.replaceState(null, '', route.path)
+                }
+            }
+        })
+    },
+    {
+        root: null,
+        threshold: 0.6,
+        rootMargin: '-80px 0px 0px 0px'
+    }
+  )
+
+  sections.forEach(section => observer!.observe(section))
+  window.addEventListener('scroll', onScroll)
+})
+
+onBeforeUnmount(() => {
+  observer?.disconnect()
+  window.removeEventListener('scroll', onScroll)
+})
+
+const isActiveHash = (hash: string): boolean => activeHash.value === hash
 
 const linkClass = (hash: string): string =>
     [
@@ -100,13 +151,12 @@ const sectionTitles: Record<string, string> = {
   '#top': SITE_NAME,
   '#about': 'About the Dojo',
   '#training': 'Training Systems',
-  '#details': 'Other Details',
   '#faq': 'FAQ',
   '#contact': 'Contact'
 }
 
 watch(
-  () => route.hash,
+  activeHash,
   (hash) => {
     const sectionTitle = sectionTitles[hash] ?? SITE_NAME
 

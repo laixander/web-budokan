@@ -50,22 +50,22 @@
                     </h3>
                     <ul class="space-y-2 text-sm text-zinc-500 font-medium">
                         <li>
-                            <a class="hover:text-red-700 transition-colors" href="/">
+                            <a class="hover:text-red-700 transition-colors" href="/#about">
                                 About The Dojo
                             </a>
                         </li>
                         <li>
-                            <a class="hover:text-red-700 transition-colors" href="/">
+                            <a class="hover:text-red-700 transition-colors" href="/#training-details">
                                 Instructor Lineage
                             </a>
                         </li>
                         <li>
-                            <a class="hover:text-red-700 transition-colors" href="/">
+                            <a class="hover:text-red-700 transition-colors" href="/#training-details">
                                 Student Expectations
                             </a>
                         </li>
                         <li>
-                            <a class="hover:text-red-700 transition-colors" href="/">
+                            <a class="hover:text-red-700 transition-colors" href="/schedule">
                                 Class Schedule
                             </a>
                         </li>

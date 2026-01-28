@@ -1,6 +1,6 @@
 <template>
     <UApp>
-        <div id="top" class="scroll-smooth">
+        <div class="scroll-smooth">
             <NuxtPage />
         </div>
     </UApp>
