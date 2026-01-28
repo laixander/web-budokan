@@ -6,7 +6,7 @@
                 <Header title="Admin Dashboard" subtitle="Manage your dojo, classes, and students">
                     <a class="flex items-center justify-center bg-zinc-800 hover:bg-zinc-700 text-white px-6 py-3 rounded-md font-bold transition-colors shadow-lg border border-zinc-700 w-full lg:w-auto"
                         href="/admin/classes" data-discover="true">
-                        <UIcon name="i-lucide-calendar" class="w-5 h-5 mr-2" />Manage Schedule
+                        <UIcon name="i-lucide-calendar" class="w-5 h-5 mr-2" />Manage Classes
                     </a>
                 </Header>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
