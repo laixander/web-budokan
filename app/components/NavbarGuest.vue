@@ -1,7 +1,8 @@
 <template>
     <Navbar brand="Budokan" brandAccent="PH" brandLink="/" :items="[
         { label: 'Home', to: '/' },
-        { label: 'Schedule', to: '/schedule' }
+        { label: 'Schedule', to: '/schedule' },
+        { label: 'Membership', to: '/membership' }
     ]">
         <!-- Guest -->
         <template #guest>
