@@ -18,10 +18,10 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-10">
                     <StatCard v-for="(stat, index) in stats" :key="index" v-bind="stat" />
                 </div>
-                <ListCard title="Attendance History">
+                <ListCard title="Recent Check-ins">
                     <template #extra>
                         <a class="text-xs text-red-500 font-bold uppercase hover:underline flex items-center"
-                            href="/student/schedule" data-discover="true">Find a class
+                            href="/student/history" data-discover="true">View All
                             <UIcon name="i-lucide-arrow-right" class="w-3 h-3 ml-1" />
                         </a>
                     </template>

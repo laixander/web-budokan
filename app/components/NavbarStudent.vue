@@ -3,7 +3,8 @@
         { label: 'Home', to: '/' },
         { label: 'Schedule', to: '/schedule' },
         { label: 'Dashboard', to: '/student' },
-        { label: 'Class Schedule', to: '/student/schedule' }
+        { label: 'Class Schedule', to: '/student/schedule' },
+        { label: 'History', to: '/student/history' }
     ]" :user="user">
 
         <!-- Authenticated -->
