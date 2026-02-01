@@ -22,7 +22,7 @@
                 </NuxtLink>
 
                 <!-- Desktop Nav -->
-                <div class="hidden md:flex items-center space-x-6">
+                <div class="hidden lg:flex items-center space-x-6">
                     <NuxtLink v-for="item in items" :key="item.label" :to="item.to"
                         class="px-3 py-2 text-sm font-bold uppercase tracking-widest transition-colors" :class="isActive(item.to)
                             ? 'text-red-600'
@@ -40,7 +40,7 @@
                 </div>
 
                 <!-- Mobile Toggle -->
-                <button class="md:hidden p-2 rounded-md text-zinc-400 hover:text-white hover:bg-zinc-800"
+                <button class="lg:hidden p-2 rounded-md text-zinc-400 hover:text-white hover:bg-zinc-800"
                     @click="isOpen = !isOpen">
                     <UIcon :name="isOpen ? 'i-lucide-x' : 'i-lucide-menu'" class="flex h-6 w-6" />
                 </button>
@@ -48,7 +48,7 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div v-show="isOpen" class="md:hidden bg-zinc-950 border-b border-zinc-900">
+        <div v-show="isOpen" class="lg:hidden bg-zinc-950 border-b border-zinc-900">
             <div class="px-4 py-4 space-y-2">
                 <NuxtLink v-for="item in items" :key="item.label" :to="item.to" @click="isOpen = false"
                     class="block px-3 py-2 text-sm font-bold uppercase tracking-widest" :class="isActive(item.to)

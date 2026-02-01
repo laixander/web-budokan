@@ -1,8 +1,8 @@
 <template>
     <footer class="bg-zinc-950 text-gray-400 py-12 border-t border-zinc-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="col-span-1 md:col-span-1">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="col-span-1 lg:col-span-1">
                     <span class="text-white text-2xl font-black tracking-tighter uppercase block mb-6">
                         Budokan <span class="text-red-700">PH</span>
                     </span>
@@ -87,7 +87,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-zinc-900 mt-12 pt-8 text-center text-xs text-zinc-700 uppercase tracking-widest font-mono">
+            <div
+                class="border-t border-zinc-900 mt-12 pt-8 text-center text-xs text-zinc-700 uppercase tracking-widest font-mono">
                 &copy; 2026 Budokan Philippines. All rights reserved.
             </div>
         </div>
