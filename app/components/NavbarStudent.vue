@@ -45,7 +45,7 @@
         <!-- Mobile -->
         <template #mobile-authenticated>
             <NuxtLink to="/login"
-                class="text-gray-300 hover:text-red-500 block w-full text-left px-3 py-2 text-base font-bold uppercase tracking-widest">
+                class="bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded-sm text-sm font-bold uppercase tracking-widest flex justify-center border border-red-700 hover:border-red-500">
                 Logout
             </NuxtLink>
         </template>
