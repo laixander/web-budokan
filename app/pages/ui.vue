@@ -6,6 +6,8 @@
                 <div class="max-w-4xl mx-auto px-4 text-center flex gap-2">
                     <UButton>Button</UButton>
                     <UButton icon="i-lucide-log-out">Logout</UButton>
+                    <UInput icon="i-lucide-search" placeholder="Search..." />
+
                 </div>
             </section>
         </main>
