@@ -89,6 +89,11 @@
                                     <td class="px-6 py-4 text-right">
                                         <div class="flex items-center justify-end space-x-2">
 
+                                            <!-- Student Details -->
+                                            <button @click="viewDetails(student)" class="p-1.5 text-zinc-500 hover:text-white transition-colors" title="View Details">
+                                                <UIcon name="i-lucide-eye" class="flex w-4 h-4" />
+                                            </button>
+
                                             <!-- Change Plan -->
                                             <button
                                               class="p-1.5 transition-colors"
@@ -127,86 +132,34 @@
 
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { INITIAL_USERS } from '../../lib/users'
 
-const students = ref([
-    {
-        id: 1,
-        name: 'Daniel LaRusso',
-        email: 'student@budokhan.com',
-        joined: '10/1/2023',
-        plan: 'plan-beginner',
-        active: true,
-        changingPlan: false
-    },
-    {
-        id: 2,
-        name: 'Johnny Lawrence',
-        email: 'johnny@cobrakai.com',
-        joined: '10/2/2023',
-        plan: null,
-        active: false,
-        changingPlan: false
-    },
-    {
-        id: 3,
-        name: 'Miguel Diaz',
-        email: 'miguel@eaglefang.com',
-        joined: '11/15/2023',
-        plan: null,
-        active: true,
-        changingPlan: false
-    },
-    {
-        id: 4,
-        name: 'Robby Keene',
-        email: 'robby@eaglefang.com',
-        joined: '12/1/2023',
-        plan: 'plan-advanced',
-        active: false,
-        changingPlan: false
-    },
-    {
-        id: 5,
-        name: 'Hawk',
-        email: 'hawk@eaglefang.com',
-        joined: '12/15/2023',
-        plan: 'plan-intermediate',
-        active: true,
-        changingPlan: false
-    },
-    {
-        id: 6,
-        name: 'Carmen Diaz',
-        email: 'carmen@eaglefang.com',
-        joined: '12/20/2023',
-        plan: 'plan-beginner',
-        active: true,
-        changingPlan: false
-    },
-    {
-        id: 7,
-        name: 'Samantha LaRusso',
-        email: 'samantha@eaglefang.com',
-        joined: '12/25/2023',
-        plan: null,
-        active: true,
-        changingPlan: false
-    },
-    {
-        id: 8,
-        name: 'Tory Nichols',
-        email: 'tory@eaglefang.com',
-        joined: '1/1/2024',
-        plan: null,
-        active: false,
-        changingPlan: false
+const router = useRouter()
+
+const formatDate = (iso) => {
+    try {
+        return new Date(iso).toLocaleDateString('en-US')
+    } catch (e) {
+        return iso
     }
-])
+}
+
+const students = ref(
+    INITIAL_USERS.filter(u => u.role === 'user').map(u => ({
+        id: u.id,
+        name: u.name,
+        email: u.email,
+        joined: formatDate(u.createdAt),
+        plan: u.planId || null,
+        active: u.status === 'active',
+        changingPlan: false
+    }))
+)
 
 const getPlanLabel = (plan) => {
     if (!plan) return 'No Plan'
-
     return plan
         .replace('plan-', '')
         .split('-')
@@ -227,5 +180,9 @@ const toggleStudent = (student) => {
     student.active = !student.active
     console.log('Status toggled:', student.name, student.active)
     // TODO: API call
+}
+
+const viewDetails = (student) => {
+    router.push({ path: '/admin/student', query: { id: student.id } })
 }
 </script>

@@ -21,7 +21,7 @@
                         </div>
                     </div>
 
-                    <div class="p-8">
+                    <div class="p-8 flex flex-col grow">
                         <h3 class="text-2xl font-black uppercase text-white mb-1">
                             {{ system.title }}
                         </h3>
@@ -32,9 +32,13 @@
 
                         <div class="h-px w-full bg-zinc-800 my-4 group-hover:bg-red-900/50 transition-colors"></div>
 
-                        <p class="text-zinc-400 text-sm leading-relaxed">
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6 grow">
                             {{ system.description }}
                         </p>
+
+                        <a class="inline-flex items-center text-red-600 font-bold uppercase tracking-widest text-xs hover:text-red-500 hover:underline mt-auto pt-4 border-t border-zinc-900" href="/membership">
+                            View Membership <UIcon name="i-lucide-arrow-right" class="size-3 ml-2" />
+                        </a>
                     </div>
                 </div>
             </div>
